@@ -8,6 +8,7 @@ const data = require('./data');
 const MONGODB_URI = 'mongodb://localhost:27017/recipe-app';
 
 //Method 1 : Using Async Await
+//const firstRecipe = data[0];
 
 const manageRecipes = async () => {
   try {
@@ -17,6 +18,12 @@ const manageRecipes = async () => {
 
     // Before adding any recipes to the database, let's remove all existing ones
     await Recipe.deleteMany();
+   // await Recipe.create(firstRecipe)
+    await Recipe.insertMany(data)
+    //console.log(firstRecipe.title)
+ 
+
+
 
     // Run your code here, after you have insured that the connection was made
   } catch (error) {
